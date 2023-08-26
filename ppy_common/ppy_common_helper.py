@@ -2,7 +2,6 @@ import random
 import sys
 import uuid
 from ppy_common import PPyCException
-from ppy_common import PyCommon
 
 
 class PPyCommonHelper:
@@ -14,7 +13,7 @@ class PPyCommonHelper:
 
     @staticmethod
     def get_random(length=12) -> str:
-        unique_id = PyCommon.uuid()
+        unique_id = PPyCommonHelper.uuid()
         unique_id = unique_id.replace("-", "")
         unique_id = unique_id[:length]
         return unique_id.lower()
