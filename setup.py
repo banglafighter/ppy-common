@@ -9,7 +9,7 @@ env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = ["click"]
+    dependency = ["click==8.1.7"]
 
     if env and env == "dev":
         return dependency
