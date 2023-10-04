@@ -1,4 +1,4 @@
-from ppy_common import click
+import click
 
 
 class Console:
