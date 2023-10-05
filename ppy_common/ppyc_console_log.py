@@ -1,3 +1,4 @@
+import subprocess
 import click
 
 
@@ -53,3 +54,8 @@ class Console:
     @staticmethod
     def log(message, system_log: bool = False):
         return Console.blue(Console.get_message_format(message), True, system_log=system_log)
+
+    @staticmethod
+    def run(command, home, env=None):
+        response = subprocess.run(command, shell=True, cwd=home, env=env)
+        return response
