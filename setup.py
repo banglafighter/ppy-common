@@ -6,7 +6,7 @@ CURRENT_DIR = pathlib.Path(__file__).parent
 README = (CURRENT_DIR / "README.md").read_text()
 
 env = os.environ.get('source')
-print(f">>>>>> ENVVVVVVVVVVVVVVVVVVVVV {env}")
+
 
 def get_dependencies():
     dependency = ["click==8.1.7"]
