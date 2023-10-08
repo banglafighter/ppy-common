@@ -56,6 +56,6 @@ class Console:
         return Console.blue(Console.get_message_format(message), True, system_log=system_log)
 
     @staticmethod
-    def run(command, home, env=None):
-        response = subprocess.run(command, shell=True, cwd=home, env=env)
+    def run(command, home, env=None, **kwargs):
+        response = subprocess.run(command, shell=True, cwd=home, env=env, **kwargs)
         return response
