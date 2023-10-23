@@ -20,10 +20,10 @@ def get_dependencies():
 setup(
     name='ppy-common',
     version='0.0.2',
-    url='https://github.com/problemfighter/ppy-common',
+    url='https://github.com/banglafighter/ppy-common',
     license='Apache 2.0',
-    author='Problem Fighter',
-    author_email='problemfighter.com@gmail.com',
+    author='Bangla Fighter',
+    author_email='banglafighter.com@gmail.com',
     description='PWeb Python Common is a library which help various common work to do easily',
     long_description=README,
     long_description_content_type='text/markdown',
