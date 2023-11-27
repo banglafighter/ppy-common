@@ -18,6 +18,7 @@ class DateUtil:
         date_data = DateData()
         date_data.year = input_date.year
         date_data.month = input_date.month
+        date_data.yearShort = input_date.strftime("%y")
         date_data.monthName = input_date.strftime("%B")
         date_data.monthShort = input_date.strftime("%b")
         date_data.day = input_date.day

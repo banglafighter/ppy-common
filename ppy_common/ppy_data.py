@@ -4,6 +4,7 @@ class DateData:
     monthName: str
     monthShort: str
     year: int
+    yearShort: int
     weekday: str
     dayOfYear: str
     weekOfYear: str
