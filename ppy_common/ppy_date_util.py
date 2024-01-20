@@ -12,6 +12,16 @@ class DateUtil:
         return None
 
     @staticmethod
+    def datetime_to_format_string(date_time, date_format: str = "%d/%m/%Y", datetime_format: str = "%d/%m/%Y %H:%M:%S", default=None):
+        if not date_time:
+            return default
+        if isinstance(date_time, date):
+            return date_time.strftime(date_format)
+        elif isinstance(date_time, datetime):
+            return date_time.strftime(datetime_format)
+        return default
+
+    @staticmethod
     def split_data_into(input_date: date = None) -> DateData:
         if not input_date:
             input_date = date.today()
