@@ -1,4 +1,3 @@
-import datetime
 from datetime import date, datetime
 from ppy_common.ppy_data import DateData, TimeData
 
@@ -16,9 +15,9 @@ class DateUtil:
     def datetime_to_format_string(date_time, date_format: str = "%d/%m/%Y", datetime_format: str = "%d/%m/%Y %H:%M:%S", default=None):
         if not date_time:
             return default
-        if type(date_time) is datetime.date:
+        if type(date_time) is date:
             return DateUtil.date_to_string(date_data=date_time, date_format=date_format)
-        elif type(date_time) is datetime.datetime:
+        elif type(date_time) is datetime:
             return DateUtil.datetime_to_string(datetime_data=date_time, datetime_format=datetime_format)
         return default
 
