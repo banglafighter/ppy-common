@@ -1,3 +1,4 @@
+import datetime
 from datetime import date, datetime
 from ppy_common.ppy_data import DateData, TimeData
 
@@ -15,11 +16,19 @@ class DateUtil:
     def datetime_to_format_string(date_time, date_format: str = "%d/%m/%Y", datetime_format: str = "%d/%m/%Y %H:%M:%S", default=None):
         if not date_time:
             return default
-        if isinstance(date_time, date):
-            return date_time.strftime(date_format)
-        elif isinstance(date_time, datetime):
-            return date_time.strftime(datetime_format)
+        if type(date_time) is datetime.date:
+            return DateUtil.date_to_string(date_data=date_time, date_format=date_format)
+        elif type(date_time) is datetime.datetime:
+            return DateUtil.datetime_to_string(datetime_data=date_time, datetime_format=datetime_format)
         return default
+
+    @staticmethod
+    def date_to_string(date_data, date_format: str = "%d/%m/%Y"):
+        return date_data.strftime(date_format)
+
+    @staticmethod
+    def datetime_to_string(datetime_data, datetime_format: str = "%d/%m/%Y %H:%M:%S"):
+        return datetime_data.strftime(datetime_format)
 
     @staticmethod
     def split_data_into(input_date: date = None) -> DateData:
