@@ -1,4 +1,6 @@
 from datetime import date, datetime
+from math import floor
+
 from ppy_common.ppy_data import DateData, TimeData
 
 
@@ -10,6 +12,33 @@ class DateUtil:
         if date_time_data:
             return date_time_data.date()
         return None
+
+    @staticmethod
+    def diff_min_hour_day_full(previous: datetime, current: datetime = None, str_format="%d %b %Y at %H:%M:%S", date_format_after=30, day="d", hour="h", min="m") -> str:
+        date_time = "1" + min
+        if not current:
+            current = datetime.now()
+
+        if previous:
+            difference = current - previous
+            seconds = difference.total_seconds()
+            if not seconds or seconds <= 0:
+                return ""
+
+            days = floor(seconds / (60 * 60 * 24))
+            if 0 < days <= date_format_after:
+                return str(days) + day
+            elif days > date_format_after:
+                return previous.strftime(str_format)
+
+            hours = floor(seconds / (60 * 60))
+            if hours > 0:
+                return str(hours) + hour
+
+            minute = floor(seconds / 60)
+            if minute > 0:
+                return str(minute) + min
+        return date_time
 
     @staticmethod
     def datetime_to_format_string(date_time, date_format: str = "%d/%m/%Y", datetime_format: str = "%d/%m/%Y %H:%M:%S", default=None):
