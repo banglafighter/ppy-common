@@ -1,3 +1,6 @@
+import json
+
+
 class DataUtil:
 
     @staticmethod
@@ -57,3 +60,12 @@ class DataUtil:
         if amount is None or percentage is None:
             return amount
         return (amount * percentage) / 100
+
+    @staticmethod
+    def json_string_to_dict(json_string: str, default=None):
+        try:
+            if not json_string or json_string == "":
+                return default
+            return json.loads(json_string)
+        except Exception as e:
+            return default
