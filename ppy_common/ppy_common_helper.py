@@ -26,6 +26,11 @@ class PyCommon:
         return "{:06d}".format(random_number)
 
     @staticmethod
+    def generate_alphanumeric_code(length: int = 4):
+        code = ''.join(random.choices(f"{string.ascii_uppercase}{string.digits}", k=length))
+        return code
+
+    @staticmethod
     def get_random_string(length: int = 5) -> str:
         random_string = ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
         return random_string
