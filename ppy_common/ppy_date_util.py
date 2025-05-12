@@ -1,6 +1,5 @@
 from datetime import date, datetime
 from math import floor
-
 from ppy_common.ppy_data import DateData, TimeData
 
 
@@ -92,3 +91,12 @@ class DateUtil:
         time_data.hour24 = input_datetime.strftime("%H")
         time_data.amPm = input_datetime.strftime("%p")
         return time_data
+
+    @staticmethod
+    def get_weekday():
+        today = date.today()
+        return today.strftime("%A")
+
+    @staticmethod
+    def get_db_datetime():
+        return datetime.now()
