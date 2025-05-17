@@ -61,6 +61,11 @@ class DateUtil:
         return date_data.strftime(date_format)
 
     @staticmethod
+    def today_str_format(date_format: str = "%d/%m/%Y"):
+        today = datetime.today()
+        return today.strftime(date_format)
+
+    @staticmethod
     def datetime_to_string(datetime_data, datetime_format: str = "%d/%m/%Y %H:%M:%S"):
         return datetime_data.strftime(datetime_format)
 
