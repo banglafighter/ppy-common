@@ -105,3 +105,7 @@ class DateUtil:
     @staticmethod
     def get_db_datetime():
         return datetime.now()
+
+    @staticmethod
+    def get_db_date():
+        return date.today()
