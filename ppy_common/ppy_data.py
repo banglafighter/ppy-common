@@ -10,6 +10,25 @@ class DateData:
     weekOfYear: str
 
 
+class SecondsToOther:
+    day: int = None
+    hour: int = None
+    minute: int = None
+    second: int = None
+
+    def get_short_form(self):
+        formatted_text = ""
+        if self.day:
+            formatted_text += f" {self.day}D"
+        if self.hour:
+            formatted_text += f" {self.hour}H"
+        if self.minute:
+            formatted_text += f" {self.minute}M"
+        if self.second:
+            formatted_text += f" {int(self.second)}S"
+        return formatted_text.strip()
+
+
 class TimeData:
     hour24: str
     hour12: str

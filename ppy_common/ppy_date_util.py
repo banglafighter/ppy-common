@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from math import floor
-from ppy_common.ppy_data import DateData, TimeData
+from ppy_common.ppy_data import DateData, TimeData, SecondsToOther
 
 
 class DateUtil:
@@ -18,6 +18,22 @@ class DateUtil:
         if date_time_data:
             return date_time_data
         return None
+
+    @staticmethod
+    def convert_seconds_to(total_seconds: int) -> SecondsToOther:
+        response = SecondsToOther()
+        response.day, remainder = divmod(total_seconds, 86400)
+        response.hour, remainder = divmod(remainder, 3600)
+        response.minute, response.second = divmod(remainder, 60)
+        return response
+
+    @staticmethod
+    def get_seconds_diff(previous: datetime, current: datetime, default=None):
+        if not previous or not current:
+            return default
+        difference = current - previous
+        seconds = difference.total_seconds()
+        return seconds
 
     @staticmethod
     def diff_min_hour_day_full(previous: datetime, current: datetime = None, str_format="%d %b %Y at %H:%M:%S", date_format_after=30, day="d", hour="h", min="m") -> str:
