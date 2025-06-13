@@ -19,13 +19,13 @@ class SecondsToOther:
     def get_short_form(self):
         formatted_text = ""
         if self.day:
-            formatted_text += f" {self.day}D"
+            formatted_text += f" {int(self.day)}d"
         if self.hour:
-            formatted_text += f" {self.hour}H"
+            formatted_text += f" {int(self.hour)}h"
         if self.minute:
-            formatted_text += f" {self.minute}M"
+            formatted_text += f" {int(self.minute)}m"
         if self.second:
-            formatted_text += f" {int(self.second)}S"
+            formatted_text += f" {int(self.second)}s"
         return formatted_text.strip()
 
 
