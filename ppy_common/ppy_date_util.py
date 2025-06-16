@@ -82,6 +82,20 @@ class DateUtil:
         return today.strftime(date_format)
 
     @staticmethod
+    def date_of_starting_time(string_date: str = None, date_format: str = "%d/%m/%Y"):
+        if not string_date:
+            string_date = DateUtil.today_str_format(date_format=date_format)
+        starting_datetime = f"{string_date} 00:00:00"
+        return DateUtil.string_datetime_to_datetime(string_date=starting_datetime, date_format=f"{date_format} %H:%M:%S")
+
+    @staticmethod
+    def date_of_ending_time(string_date: str = None, date_format: str = "%d/%m/%Y"):
+        if not string_date:
+            string_date = DateUtil.today_str_format(date_format=date_format)
+        starting_datetime = f"{string_date} 23:59:59"
+        return DateUtil.string_datetime_to_datetime(string_date=starting_datetime, date_format=f"{date_format} %H:%M:%S")
+
+    @staticmethod
     def datetime_to_string(datetime_data, datetime_format: str = "%d/%m/%Y %H:%M:%S"):
         return datetime_data.strftime(datetime_format)
 
