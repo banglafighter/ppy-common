@@ -1,4 +1,5 @@
 from datetime import date, datetime
+import time
 from math import floor
 from ppy_common.ppy_data import DateData, TimeData, SecondsToOther
 
@@ -139,3 +140,7 @@ class DateUtil:
     @staticmethod
     def get_db_date():
         return date.today()
+
+    @staticmethod
+    def get_timestamp():
+        return int(time.time() * 1000)
